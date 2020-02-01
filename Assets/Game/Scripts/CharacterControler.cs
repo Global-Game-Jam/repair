@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class CharacterControler : MonoBehaviour
-{
-    public Camera cam;
+{    
     public NavMeshAgent agent;
+    private Camera _cam;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _cam = Camera.main;
     }
 
     // Update is called once per frame
@@ -18,7 +18,7 @@ public class CharacterControler : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
