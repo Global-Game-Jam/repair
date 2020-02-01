@@ -56,6 +56,8 @@ public class GameField : MonoBehaviour
 
     public void OnTwoAnimalsWantToPlay(CharacterControler firstAnimal, CharacterControler secondAnimal)
     {
+        if (Couple2Pair == 0 || FailBeforeLoose == 0)
+            return;
         if (firstAnimal.AnimalType == secondAnimal.AnimalType &&
             firstAnimal.Sex != secondAnimal.Sex)
         {
