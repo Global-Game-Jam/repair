@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2163816628755362804}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ram_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2908254548833141223}
-  m_LocalRotation: {x: -0, y: -0.52468497, z: -0, w: 0.8512965}
+  m_LocalRotation: {x: 0, y: -0.52468437, z: 0, w: 0.85129684}
   m_LocalPosition: {x: -8.683, y: 1.6687999, z: -1.177}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 8532548936933155020}
   - component: {fileID: 8946810258337920031}
   - component: {fileID: 363619826659236079}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}

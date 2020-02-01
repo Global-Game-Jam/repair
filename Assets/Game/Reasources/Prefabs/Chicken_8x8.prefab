@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 694014032642040972}
   - component: {fileID: 279613082807251039}
   - component: {fileID: 8846125574508928175}
-  m_Layer: 0
+  - component: {fileID: 512459260336189938}
+  m_Layer: 8
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,6 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &512459260336189938
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547309040442515514}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.80000013, y: 0.8000001, z: 0.80000013}
+  m_Center: {x: -0.39999965, y: 0.8, z: -0.40000007}
 --- !u!1 &6310708575603213735
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7047990323527661492}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chicken_8x8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +116,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6310708575603213735}
-  m_LocalRotation: {x: -0, y: 0.98104733, z: -0, w: -0.19376849}
+  m_LocalRotation: {x: 0, y: 0.9810466, z: -0, w: -0.19377185}
   m_LocalPosition: {x: -1.3608887, y: 3.2688, z: 0.8221172}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
