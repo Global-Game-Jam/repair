@@ -57,13 +57,14 @@ public class GameField : MonoBehaviour
     public void OnTwoAnimalsWantToPlay(CharacterControler firstAnimal, CharacterControler secondAnimal)
     {
         if (firstAnimal.AnimalType == secondAnimal.AnimalType &&
-            firstAnimal.Sex == secondAnimal.Sex)
+            firstAnimal.Sex != secondAnimal.Sex)
         {
             --Couple2Pair;
             if (Couple2Pair == 0)
             {
                 Debug.Log("Win");
-                SceneManager.LoadScene("Game/Scenes/UI/WinLevel");
+                SceneManager.LoadScene("Game/Scenes/UI/WinLevel", LoadSceneMode.Additive);
+                // Stop all mobs here
             }
         }
         else
@@ -73,7 +74,8 @@ public class GameField : MonoBehaviour
             if (FailBeforeLoose == 0)
             {
                 Debug.Log("Loose");
-                SceneManager.LoadScene("Game/Scenes/UI/LooseLevel");
+                SceneManager.LoadScene("Game/Scenes/UI/LooseLevel", LoadSceneMode.Additive);
+                // Stop all mobs here
             }
         }
         //Destroy(firstAnimal.gameObject);
