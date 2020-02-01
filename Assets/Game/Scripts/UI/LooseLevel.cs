@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LooseLevel : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class LooseLevel : MonoBehaviour
         {
             color.a += Time.deltaTime * 0.2f;
             Image.color = color;
+        }
+        else
+        {
+            Debug.Log("Start Clicked");
+            SceneManager.LoadScene("Game/Scenes/UI/Start");
         }
     }
 }
