@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameField : MonoBehaviour
 {    
     public GameObject Characters;
+    public uint FailBeforeLoose = 1;
+    public uint Couple2Pair = 1;
 
     private List<CharacterControler> _charactersFemale;
     private List<CharacterControler> _charactersMale;
@@ -51,6 +54,26 @@ public class GameField : MonoBehaviour
 
     public void OnTwoAnimalsWantToPlay(CharacterControler firstAnimal, CharacterControler secondAnimal)
     {
+        if (firstAnimal.AnimalType == secondAnimal.AnimalType &&
+            firstAnimal.Sex == secondAnimal.Sex)
+        {
+            --Couple2Pair;
+            if (Couple2Pair == 0)
+            {
+                Debug.Log("Win");
+                SceneManager.LoadScene("Game/Scenes/UI/WinLevel");
+            }
+        }
+        else
+        {
+            
+            --FailBeforeLoose;
+            if (FailBeforeLoose == 0)
+            {
+                Debug.Log("Loose");
+                SceneManager.LoadScene("Game/Scenes/UI/LooseLevel");
+            }
+        }
         //Destroy(firstAnimal.gameObject);
         //Destroy(secondAnimal.gameObject);
     }

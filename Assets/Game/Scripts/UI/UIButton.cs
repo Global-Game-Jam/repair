@@ -20,6 +20,6 @@ public class UIButton : MonoBehaviour
     public void StartCkicked()
     {
         Debug.Log("Start Clicked");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Game/Scenes/main");
     }
 }

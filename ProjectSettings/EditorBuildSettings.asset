@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/main.unity
     guid: 56e04522223b7914da434ce8a757a25d
+  - enabled: 1
+    path: Assets/Game/Scenes/UI/WinLevel.unity
+    guid: b8b549bfed5c9354c908cc66ec5f2416
+  - enabled: 1
+    path: Assets/Game/Scenes/UI/LooseLevel.unity
+    guid: 81cfb2aad732527409cfa7baab8ec39d
   m_configObjects: {}
