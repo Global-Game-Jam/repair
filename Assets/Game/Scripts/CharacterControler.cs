@@ -4,7 +4,12 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class CharacterControler : MonoBehaviour
-{    
+{   
+    public enum SexEnum {
+        Male,
+        Female
+    }    
+    public SexEnum Sex;
     public NavMeshAgent agent;
     private Camera _cam;
     // Start is called before the first frame update
@@ -16,7 +21,7 @@ public class CharacterControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Sex == SexEnum.Male && Input.GetMouseButton(0))
         {
             Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -26,5 +31,10 @@ public class CharacterControler : MonoBehaviour
             }
 
         }
+    }
+
+    public void SetDestination(Vector3 pos)
+    {
+        agent.SetDestination(pos);
     }
 }
