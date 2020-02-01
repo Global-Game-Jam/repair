@@ -15,27 +15,16 @@ public class CharacterControler : MonoBehaviour
     }
     public AnimalTypeEnum AnimalType;
     public SexEnum Sex;
-    public NavMeshAgent agent;
-    private Camera _cam;
+    public NavMeshAgent agent;      
+    private float _stopTimer; 
+    
+    private float BUMP_DURATION = 1.0f; // in seconds
+
     // Start is called before the first frame update
     void Start()
     {
-        _cam = Camera.main;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Sex == SexEnum.Male && Input.GetMouseButton(0))
-        {
-            Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-                agent.SetDestination(hit.point);
-            }
-        }
-    }
+        _stopTimer = -1.0f;
+    }   
 
     public void SetDestination(Vector3 pos)
     {
@@ -46,4 +35,21 @@ public class CharacterControler : MonoBehaviour
         // code allowed only for JAM (not production one)
         gameObject.transform.parent.gameObject.GetComponentInParent<GameField>().OnTwoAnimalsWantToPlay(this, other);
     }   
+
+    public void Bump()
+    {
+        agent.isStopped = true;
+        _stopTimer = 0.0f;
+    }
+
+    void Update()
+    {
+        if (_stopTimer >= 0.0f) {
+            _stopTimer += Time.deltaTime;
+            if (_stopTimer >= BUMP_DURATION) {
+                _stopTimer = -1.0f;
+                agent.isStopped = false;
+            }
+        }
+    }
 }

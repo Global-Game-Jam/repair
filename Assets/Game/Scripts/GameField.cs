@@ -11,10 +11,12 @@ public class GameField : MonoBehaviour
 
     private List<CharacterControler> _charactersFemale;
     private List<CharacterControler> _charactersMale;
+    private Camera _cam;
 
     // Start is called before the first frame update
     void Start()
     {
+        _cam = Camera.main;
         _charactersFemale = new List<CharacterControler>();
         _charactersMale = new List<CharacterControler>();
 
@@ -76,5 +78,26 @@ public class GameField : MonoBehaviour
         }
         //Destroy(firstAnimal.gameObject);
         //Destroy(secondAnimal.gameObject);
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {                
+                //Destroy(hit.transform.gameObject);
+                GameObject obj = hit.transform.gameObject;
+                if (obj) {
+                    CharacterControler animal = obj.GetComponentInParent<CharacterControler>();
+                    // bumb allowed only for males
+                    if (animal && animal.Sex == CharacterControler.SexEnum.Male) {
+                        animal.Bump();
+                    }
+                }
+            }
+        }
     }
 }
