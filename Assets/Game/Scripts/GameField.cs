@@ -48,4 +48,10 @@ public class GameField : MonoBehaviour
             }
         }
     }   
+
+    public void OnTwoAnimalsWantToPlay(CharacterControler firstAnimal, CharacterControler secondAnimal)
+    {
+        //Destroy(firstAnimal.gameObject);
+        //Destroy(secondAnimal.gameObject);
+    }
 }

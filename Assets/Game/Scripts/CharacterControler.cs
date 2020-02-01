@@ -9,6 +9,11 @@ public class CharacterControler : MonoBehaviour
         Male,
         Female
     }    
+    public enum AnimalTypeEnum {
+        Mops,
+        Ram
+    }
+    public AnimalTypeEnum AnimalType;
     public SexEnum Sex;
     public NavMeshAgent agent;
     private Camera _cam;
@@ -29,7 +34,6 @@ public class CharacterControler : MonoBehaviour
             {
                 agent.SetDestination(hit.point);
             }
-
         }
     }
 
@@ -37,4 +41,9 @@ public class CharacterControler : MonoBehaviour
     {
         agent.SetDestination(pos);
     }
+
+    public void OnTriggerWithOther(CharacterControler other) {
+        // code allowed only for JAM (not production one)
+        gameObject.transform.parent.gameObject.GetComponentInParent<GameField>().OnTwoAnimalsWantToPlay(this, other);
+    }   
 }
