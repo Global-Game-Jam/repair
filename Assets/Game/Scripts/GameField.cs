@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,12 +14,18 @@ public class GameField : MonoBehaviour
     private List<CharacterControler> _charactersMale;
     private Camera _cam;
 
+    private GameObject _kissEffect;
+
     // Start is called before the first frame update
     void Start()
     {
         _cam = Camera.main;
         _charactersFemale = new List<CharacterControler>();
         _charactersMale = new List<CharacterControler>();
+        _kissEffect = Instantiate (Resources.Load<GameObject>("Prefabs/Effects/HeartParticlesInGameObject"));
+        _kissEffect.SetActive(false);
+        _kissEffect.transform.rotation = Quaternion.AngleAxis(45, Vector3.up);
+        
 
         foreach (Transform t in Characters.transform)
         {
@@ -61,6 +68,7 @@ public class GameField : MonoBehaviour
         if (firstAnimal.AnimalType == secondAnimal.AnimalType &&
             firstAnimal.Sex != secondAnimal.Sex)
         {
+            SpawnKiss(Vector3.Lerp(firstAnimal.transform.position, secondAnimal.transform.position, 0.5f));
             --Couple2Pair;
             if (Couple2Pair == 0)
             {
@@ -82,6 +90,13 @@ public class GameField : MonoBehaviour
         }
         //Destroy(firstAnimal.gameObject);
         //Destroy(secondAnimal.gameObject);
+    }
+
+    private void SpawnKiss(Vector3 position)
+    {
+        _kissEffect.SetActive(true);
+        _kissEffect.transform.position = position + new Vector3(0.0f, 0.0f, 1.0f);
+        _kissEffect.GetComponent<ParticleSystem>().Play();
     }
 
     void Update()
