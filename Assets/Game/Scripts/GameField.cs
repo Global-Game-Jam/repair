@@ -10,6 +10,12 @@ public class GameField : MonoBehaviour
     public uint FailBeforeLoose = 1;
     public uint Couple2Pair = 1;
 
+    public AudioSource ambient;
+
+    public float pauseBeforeRestartLevel = 2.0f;
+
+
+
     private List<CharacterControler> _charactersFemale;
     private List<CharacterControler> _charactersMale;
     private Camera _cam;
@@ -94,9 +100,13 @@ public class GameField : MonoBehaviour
 
     private void SpawnKiss(Vector3 position)
     {
+        GetComponent<AudioSource>().Play();
+        ambient.Pause();
         _kissEffect.SetActive(true);
         _kissEffect.transform.position = position + new Vector3(0.0f, 0.0f, 1.0f);
         _kissEffect.GetComponent<ParticleSystem>().Play();
+
+        StartCoroutine(RestartLevel());
     }
 
     void Update()
@@ -113,10 +123,16 @@ public class GameField : MonoBehaviour
                     CharacterControler animal = obj.GetComponentInParent<CharacterControler>();
                     // bumb allowed only for males
                     if (animal && animal.Sex == CharacterControler.SexEnum.Male) {
-                        animal.Bump();
+                        animal.Bump();                       
                     }
                 }
             }
         }
+    }
+
+    IEnumerator RestartLevel()
+    {
+         yield return new WaitForSeconds(pauseBeforeRestartLevel);
+         SceneManager.LoadScene("Game/Scenes/main");
     }
 }
