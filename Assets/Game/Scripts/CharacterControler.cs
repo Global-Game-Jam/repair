@@ -16,6 +16,7 @@ public class CharacterControler : MonoBehaviour
     public AnimalTypeEnum AnimalType;
     public SexEnum Sex;
     public NavMeshAgent agent;      
+    public GameObject bow;      
     private float _stopTimer; 
     
     private float BUMP_DURATION = 1.0f; // in seconds
@@ -24,6 +25,7 @@ public class CharacterControler : MonoBehaviour
     void Start()
     {
         _stopTimer = -1.0f;
+        bow.SetActive(Sex == SexEnum.Female);
     }   
 
     public void SetDestination(Vector3 pos)

@@ -7,8 +7,7 @@ public class SwapAnim : MonoBehaviour
 
     public GameObject frame1;
     public GameObject frame2;
-
-    private float _swapDelay = 0.3f; // in seconds
+    public float _swapDelay = 0.3f; // in seconds
     private float _timer = 0.0f;
 
     // Start is called before the first frame update
@@ -26,7 +25,6 @@ public class SwapAnim : MonoBehaviour
                 _timer = 0.0f;
                 frame1.SetActive( ! frame1.activeSelf);
                 frame2.SetActive( ! frame2.activeSelf);
-                 Debug.Log("swap mesh");
             }
         }
     }
