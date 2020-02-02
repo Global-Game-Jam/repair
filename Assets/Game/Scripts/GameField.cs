@@ -11,6 +11,8 @@ public class GameField : MonoBehaviour
     public uint Couple2Pair = 1;
 
     public AudioSource ambient;
+    public AudioClip winSound;
+    public AudioClip looseSound;
 
     public float pauseBeforeRestartLevel = 2.0f;
 
@@ -92,7 +94,7 @@ public class GameField : MonoBehaviour
                 Debug.Log("Loose");
                 SceneManager.LoadScene("Game/Scenes/UI/LooseLevel", LoadSceneMode.Additive);
                 // Stop all mobs here
-                
+                PlaySound(looseSound);
                 StartCoroutine(RestartLevel());
             }
         }
@@ -102,8 +104,7 @@ public class GameField : MonoBehaviour
 
     private void SpawnKiss(Vector3 position)
     {
-        GetComponent<AudioSource>().Play();
-        ambient.Pause();
+        PlaySound(winSound);
         _kissEffect.SetActive(true);
         _kissEffect.transform.position = position + new Vector3(0.0f, 0.0f, 1.0f);
         _kissEffect.GetComponent<ParticleSystem>().Play();
@@ -136,5 +137,13 @@ public class GameField : MonoBehaviour
     {
          yield return new WaitForSeconds(pauseBeforeRestartLevel);
          SceneManager.LoadScene("Game/Scenes/main");
+    }
+
+    void PlaySound(AudioClip clip)
+    {    
+        ambient.Pause();
+        AudioSource  player = GetComponent<AudioSource>();
+        player.clip = clip;
+        player.Play();
     }
 }
