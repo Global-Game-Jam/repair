@@ -1125,7 +1125,7 @@ MonoBehaviour:
   FailBeforeLoose: 1
   Couple2Pair: 1
   ambient: {fileID: 594515477}
-  pauseBeforeRestartLevel: 1
+  pauseBeforeRestartLevel: 3
 --- !u!82 &519035706
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1136,7 +1136,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ddbb5646723454e6f883b8ffbde33889, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 445b6d1c83f6c2843820e5294ba67146, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1592,9 +1592,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2033fd5bed21f114fa59c4fe645debf9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c76af007e83147347a1dcbb5ec1e35e8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.364
+  m_Volume: 0.21
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9352,6 +9352,18 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2049565512999319433, guid: ddd12715059649f40b903158c0526aed,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -8469494145858465668, guid: 78acf01ba73761741a2604895f278246,
+        type: 3}
+    - target: {fileID: 4445899896114405557, guid: ddd12715059649f40b903158c0526aed,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: 779bed89285a9ef4ca16d304ecf50a60,
+        type: 3}
     - target: {fileID: 4645849444025614076, guid: ddd12715059649f40b903158c0526aed,
         type: 3}
       propertyPath: Sex
@@ -9659,6 +9671,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: ram_001
       objectReference: {fileID: 0}
+    - target: {fileID: 5774705403415233607, guid: 3065c827c3f2c524b9d5a69eaf3b34d9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -8469494145858465668, guid: 09841c3f8f38e48939e1b1cf5e762e6a,
+        type: 3}
+    - target: {fileID: 6064283590550228937, guid: 3065c827c3f2c524b9d5a69eaf3b34d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8223103035357104489, guid: 3065c827c3f2c524b9d5a69eaf3b34d9,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: 779bed89285a9ef4ca16d304ecf50a60,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3065c827c3f2c524b9d5a69eaf3b34d9, type: 3}
 --- !u!4 &8359634035944231209 stripped
