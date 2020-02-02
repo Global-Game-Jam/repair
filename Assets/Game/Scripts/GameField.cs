@@ -92,6 +92,8 @@ public class GameField : MonoBehaviour
                 Debug.Log("Loose");
                 SceneManager.LoadScene("Game/Scenes/UI/LooseLevel", LoadSceneMode.Additive);
                 // Stop all mobs here
+                
+                StartCoroutine(RestartLevel());
             }
         }
         //Destroy(firstAnimal.gameObject);
